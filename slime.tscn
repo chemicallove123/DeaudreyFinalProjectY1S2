@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://btq1o61iliqu6"]
+
+[ext_resource type="Script" path="res://slime.gd" id="1_mxtfw"]
+[ext_resource type="Texture2D" uid="uid://dh26m8v7k4ag1" path="res://Assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_xy8l1"]
+[ext_resource type="PackedScene" uid="uid://bemgfrwps48gm" path="res://killzone.tscn" id="2_hplt1"]
+[ext_resource type="Script" path="res://EnemyHitbox.gd" id="4_poqop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty4lm"]
+atlas = ExtResource("1_xy8l1")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q54fr"]
+atlas = ExtResource("1_xy8l1")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evbn2"]
+atlas = ExtResource("1_xy8l1")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kd1k"]
+atlas = ExtResource("1_xy8l1")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dmdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty4lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q54fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evbn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kd1k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g4ij"]
+size = Vector2(14, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihwjb"]
+size = Vector2(14, 12)
+
+[node name="Slime" type="Node2D"]
+script = ExtResource("1_mxtfw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2dmdt")
+autoplay = "default"
+frame_progress = 0.998643
+
+[node name="Killzone" parent="." instance=ExtResource("2_hplt1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_4g4ij")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(7, 0)
+collision_mask = 7
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(-7, 0)
+collision_mask = 7
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemies"]]
+script = ExtResource("4_poqop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["enemies"]]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_ihwjb")
