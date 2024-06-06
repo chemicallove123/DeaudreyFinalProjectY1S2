@@ -685,6 +685,15 @@ position = Vector2(250, 2)
 [node name="coins15" parent="Coins" instance=ExtResource("6_lrid8")]
 position = Vector2(376, 4)
 
+[node name="coins16" parent="Coins" instance=ExtResource("6_lrid8")]
+position = Vector2(1146, 6)
+
+[node name="coins17" parent="Coins" instance=ExtResource("6_lrid8")]
+position = Vector2(694, 3)
+
+[node name="coins18" parent="Coins" instance=ExtResource("6_lrid8")]
+position = Vector2(-135, -90)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Path2D2" parent="Platforms" instance=ExtResource("10_aq1bg")]
