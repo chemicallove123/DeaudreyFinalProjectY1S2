@@ -741,14 +741,32 @@ theme_override_font_sizes/font_size = 8
 text = "Space to jump
 "
 
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 40.0
+offset_top = -14.0
+offset_right = 142.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("9_w64xa")
+theme_override_font_sizes/font_size = 8
+text = "Click to attack"
+
 [node name="Label2" type="Label" parent="Labels"]
-offset_left = -259.0
-offset_top = -109.0
-offset_right = -178.0
-offset_bottom = -96.0
+offset_left = -182.0
+offset_top = -21.0
+offset_right = -101.0
+offset_bottom = -5.0
 theme_override_fonts/font = ExtResource("9_w64xa")
 theme_override_font_sizes/font_size = 8
 text = "WASD to move"
+
+[node name="Label4" type="Label" parent="Labels"]
+offset_left = 23.0
+offset_top = 95.0
+offset_right = 165.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("9_w64xa")
+theme_override_font_sizes/font_size = 8
+text = "Push crates into water"
 
 [node name="Crate" type="Node" parent="."]
 
